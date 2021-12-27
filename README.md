@@ -73,9 +73,9 @@ employed for the comparison of temporal trends of different mtDNA genes.
 
 ### - 6.Stairway-BaleenWhales
 
-The folder includes the scripts used for the RAD based analyses (“script” directory), accession information for the used data (“rad_data” directory), list of individual identifications (“IDs_files” directory) and the input file used to run stairway plot (“blueprint” directory).
+The folder includes the scripts used for the RAD based analyses (“scripts” directory), accession information for the used data (“rad_data” directory), list of individual identifications (“IDs_files” directory) and the input file used to run stairway plot (“blueprint” directory).
 
-script: This folder includes the scripts used for the RAD based analysesEach script corresponds to one step of the analysis and was used in the following order:
+scripts: This folder includes the scripts used for the RAD based analysesEach script corresponds to one step of the analysis and was used in the following order:
 
 - Stacks process_radtags: process_radtags.sh 
 - When the same sample was sequenced in more than one library the code in “cat_command” was used.
@@ -88,7 +88,7 @@ _java -cp stairway_plot_es Stairbuilder file.blueprint_
 The command above creates the script: file.blueprint.sh ,
 followed by: file.blueprint.plot.sh
 
-IDs_files:This folder includes a text file with the ID list for each species
+IDs_files: This folder includes a text file with the ID list for each species
 
 blueprints: This folder includes the blueprint files. For each of the baleen whale species, the files named "blueprint" are used as both the input and the configuration file for running the "STAIRWAY PLOT v2". The files employed for the plot with minimum coverage of 2x and 10x are included.
 It contains the total number of sites, including the monomorphic sites (line 5) and the folded site frequency spectrum (line 7). Additional configuration information are also included, like the used mutation rate (line 16) and generation time (line 17).
