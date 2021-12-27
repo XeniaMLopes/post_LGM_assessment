@@ -71,26 +71,28 @@ Same information as Folder Migrate-BaleenWhale_Input but for different mtDNA gen
 employed for the comparison of temporal trends of different mtDNA genes.
 
 
-### - 6.Stariway-BaleenWhales_Input
+### - 6.Stairway-BaleenWhales
 
-For each of the baleen whale species, the files named "blueprint" are used as both the input and the configuration file for running the "STAIRWAY PLOT v2". The files employed for the plot with minimum coverage of 2x and 10x are included. 
+The folder includes the scripts used for the RAD based analyses (“script” directory), accession information for the used data (“rad_data” directory), list of individual identifications (“IDs_files” directory) and the input file used to run stairway plot (“blueprint” directory).
 
-It contains the total number of sites, including the monomorphic sites (line 5) and the folded site frequency spectrum (line 7).
-Additional configuration information are also included, like the used mutation rate (line 16) and generation time (line 17).
+script: This folder includes the scripts used for the RAD based analysesEach script corresponds to one step of the analysis and was used in the following order:
 
-#### NOTE: Read me from Xenia, needs to be check
-This folder contain the scripts used for the RAD based analyses (“script” folder)
-Additionally, it contains the used data (links in the “rad_data” folder), list of individual identifications (“IDs_files” directory) and the input file used to run stairway plot (“blueprint” directory). 
-
-Each script corresponds to one step of the analysis and was used in the following order:
-- Stacks process_radtags: process_radtags.sh
-After process_radtags the reads were separated by sample and four files were created per sample (sample_xxx.1.fq, sample_xxx.2.fq, sample_xxx.rem.1.fq, sample_xxx.rem.2.fq). Those are the data files available.
-When the same sample was sequenced in more than one library the code in “cat_command” was used.
+- Stacks process_radtags: process_radtags.sh 
+- When the same sample was sequenced in more than one library the code in “cat_command” was used.
 - Bowtie: bowtie2_alig.sh
 - Samtools: sam_to_sortedbam.sh
--  Angsd: sfs.sh followed by sfs2.sh
+- Angsd: sfs.sh followed by sfs2.sh 
 After the site frequency spectrum was created it was added to the corresponding blueprint file. All the blueprint files used are attached. The blueprint files are the input for stairway plot.
--  Stairway plot: at the time stairway plot was run with the following command (available at the manual ver. 2.0 beta): 
-java -cp stairway_plot_es Stairbuilder file.blueprint
-The command above creates the script: file.blueprint.sh
+- Stairway plot: at the time stairway plot was run with the following command (available at the manual ver. 2.0 beta): 
+_java -cp stairway_plot_es Stairbuilder file.blueprint_ 
+The command above creates the script: file.blueprint.sh ,
 followed by: file.blueprint.plot.sh
+
+IDs_files:This folder includes a text file with the ID list for each species
+
+blueprints: This folder includes the blueprint files. For each of the baleen whale species, the files named "blueprint" are used as both the input and the configuration file for running the "STAIRWAY PLOT v2". The files employed for the plot with minimum coverage of 2x and 10x are included.
+It contains the total number of sites, including the monomorphic sites (line 5) and the folded site frequency spectrum (line 7). Additional configuration information are also included, like the used mutation rate (line 16) and generation time (line 17).
+
+rad_data: This folder includes a text file with the sample IDs, corresponding accession numbers and links to the data in the Short Read Archive (SRA). 
+For each sample, there are four files in SRA (sample_xxx.1.fq.gz, sample_xxx.2.fq.gz, sample_xxx.rem.1.fq.gz, sample_xxx.rem.2.fq.gz). The files are the output from “process_radtags”. 
+
